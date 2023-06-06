@@ -1,0 +1,27 @@
+{
+    "manifest_version": 2,
+    "name": "Privacy Check",
+    "version": "3.0",
+    "description": "Check privacy for the active tab.",
+    "icons": {
+        "32": "icons/logo_32.png",
+        "64": "icons/logo_64.png",
+        "128": "icons/logo_128.png"
+    },
+    "permissions": ["cookies", "<all_urls>", "tabs", "activeTab", "storage"],
+    "browser_action": {
+        "default_icon": "icons/logo_64.png",
+        "default_title": "Check privacy for the active tab",
+        "default_popup": "privacyDetector.html",
+        "browser_style": true
+    },
+    "background": {
+        "scripts": ["cookies.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": ["<all_urls>"],
+            "js": ["content.js"]
+        }
+    ]
+}
